@@ -27,7 +27,7 @@ pipeline {
                     sh "sudo docker build -t ${dockerImageName} ."
                     
                     withCredentials([usernamePassword(credentialsId: 'docker_credentials', passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
-                        sh "echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin"
+                        sh "echo $DOCKERHUB_PASSWORD | sudo docker login -u $DOCKERHUB_USERNAME --password-stdin"
                     }
                     
                     sh "sudo docker push ${dockerImageName}"
