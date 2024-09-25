@@ -15,8 +15,8 @@ pipeline {
                     
                     checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: repositoryUrl]]])
                     
-                    sh "javac HelloWorldJava.java"
-                    sh "java HelloWorldJava"
+                    sh "javac HelloWorld.java"
+                    sh "java HelloWorld"
                     
                     writeFile file: 'Dockerfile', text: '''
                     FROM openjdk:17-slim
