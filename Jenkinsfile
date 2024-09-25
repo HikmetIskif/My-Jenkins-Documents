@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script {
                     def repositoryUrl = "https://github.com/HikmetIskif/My-Jenkins-Documents"
-                    def dockerImageName = "hikmetiskifoglu/javaHelloWorldImage:latest"
+                    def dockerImageName = "hikmetiskifoglu/javahelloworldimage:latest"
                     
                     checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: repositoryUrl]]])
                     
@@ -40,7 +40,7 @@ pipeline {
             }
             steps {
                 script {
-                    def dockerImageName = "hikmetiskifoglu/javaHelloWorldImage:latest"
+                    def dockerImageName = "hikmetiskifoglu/javahelloworldimage:latest"
                     
                     sh "docker pull ${dockerImageName}"
                     
