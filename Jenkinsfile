@@ -20,8 +20,8 @@ pipeline {
                     
                     writeFile file: 'Dockerfile', text: '''
                     FROM openjdk:17-slim
-                    COPY HelloWorld.class HelloWorld.class
-                    ENTRYPOINT ["java", "HelloWorld"]
+                    COPY HelloWorld.java HelloWorld.java
+                    CMD ["sh", "-c", "javac HelloWorld.java && java HelloWorld"]
                     '''
                     
                     sh "sudo docker build -t ${dockerImageName} ."
