@@ -1,7 +1,7 @@
 pipeline {
     agent none
     triggers {
-        pollSCM('* * * * *')
+        pollSCM('H/5 * * * *')
     }
     stages {
         stage('First Machine Operations') {
